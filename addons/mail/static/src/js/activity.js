@@ -785,6 +785,7 @@ const ListActivity = KanbanActivity.extend({
         // set the 'special_click' prop on the activity icon to prevent from
         // opening the record when the user clicks on it (as it opens the
         // activity dropdown instead)
+        // xe2many reload but it may not  have the same values..
         this.$('.o_activity_btn > span').prop('special_click', true);
         if (this.value.count) {
             let text;
@@ -792,7 +793,7 @@ const ListActivity = KanbanActivity.extend({
                 text = _t('Warning');
             } else {
                 text = this.recordData.activity_summary ||
-                          this.recordData.activity_type_id.data.display_name;
+                          this.recordData.activity_type_id.data.display_name || {};
             }
             this.$('.o_activity_summary').text(text);
         }
